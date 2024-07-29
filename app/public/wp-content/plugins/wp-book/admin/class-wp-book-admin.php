@@ -144,7 +144,7 @@ function custom_post_type() {
       
     $args = array(
         'label'               => __( 'books', 'twentythirteen' ),
-        'description'         => __( ' news and reviews', 'twentythirteen' ),
+        'description'         => __( 'Manage book reviews and ratings', 'twentythirteen' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         'hierarchical'        => false,
@@ -166,7 +166,7 @@ function custom_post_type() {
     );
       
     // Registering your Custom Post Type
-    register_post_type( 'movies', $args );
+    register_post_type( 'books', $args );
   
 }
 
