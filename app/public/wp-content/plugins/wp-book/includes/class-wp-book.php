@@ -169,6 +169,7 @@ class Wp_Book {
 		$this->loader->add_action( 'save_post', $plugin_admin, 'save_bookdetails_fields' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_settings_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
+		$this->loader->add_action( 'widgets_init', $plugin_admin, 'register_widgets' );
 		
 	}
 

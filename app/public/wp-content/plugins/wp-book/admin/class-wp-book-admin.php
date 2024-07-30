@@ -106,6 +106,12 @@ class Wp_Book_Admin
 
 	}
 
+
+	public function register_widgets()
+    {
+        register_widget('WP_Book_Books_Widget');
+    }
+
 	// Our custom post type function
 	function create_book_post_type()
 	{
@@ -124,6 +130,7 @@ class Wp_Book_Admin
 				'has_archive' => true,
 				'rewrite' => array('slug' => 'books'),
 				'show_in_rest' => true,
+				'menu_icon' => 'dashicons-book',
 
 			)
 		);
@@ -430,4 +437,77 @@ class Wp_Book_Admin
 		<?php
 	}
 
+}
+class WP_Book_Books_Widget extends WP_Widget
+{
+    public function __construct()
+    {
+        parent::__construct(
+            'wp_book_books_widget', // Base ID
+            __('Books by Category', 'wp-book'), // Name
+            array('description' => __('Displays books from a selected category', 'wp-book')) // Args
+        );
+    }
+
+    public function widget($args, $instance)
+    {
+        $static_title = __('Books by Category', 'wp-book');
+
+        echo $args['before_widget'];
+        echo $args['before_title'] . $static_title . $args['after_title'];
+
+        $categories = get_terms(array(
+            'taxonomy' => 'category',
+            'hide_empty' => false,
+        ));
+
+        foreach ($categories as $cat) {
+            $query_args = array(
+                'post_type' => 'books',
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'category',
+                        'field' => 'term_id',
+                        'terms' => $cat->term_id,
+                    ),
+                ),
+            );
+
+            $query = new WP_Query($query_args);
+
+            if ($query->have_posts()) {
+                echo '<h3>' . esc_html($cat->name) . '</h3>';
+                echo '<ul style="padding-left: 20px;">'; // Indentation for books
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+                }
+                echo '</ul>';
+            }
+            wp_reset_postdata();
+        }
+
+        echo $args['after_widget'];
+    }
+
+    public function form($instance)
+    {
+        // Optionally, you can still allow a custom title to be set, but it won't be used in the widget output
+        $title = !empty($instance['title']) ? $instance['title'] : '';
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title (not used):', 'wp-book'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" disabled>
+        </p>
+        <?php
+    }
+
+    public function update($new_instance, $old_instance)
+    {
+        $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+
+        return $instance;
+    }
 }

@@ -257,3 +257,22 @@ Stack trace:
 #7 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
 #8 {main}
   thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-content\plugins\wp-book\admin\class-wp-book-admin.php on line 225
+[30-Jul-2024 10:34:33 UTC] PHP Warning:  Attempt to read property "term_id" on null in C:\Users\Aims\Local Sites\module4\app\public\wp-admin\includes\class-wp-terms-list-table.php on line 433
+[30-Jul-2024 10:34:33 UTC] PHP Warning:  Attempt to read property "name" on null in C:\Users\Aims\Local Sites\module4\app\public\wp-admin\includes\class-wp-terms-list-table.php on line 434
+[30-Jul-2024 10:34:33 UTC] PHP Warning:  Attempt to read property "slug" on null in C:\Users\Aims\Local Sites\module4\app\public\wp-admin\includes\class-wp-terms-list-table.php on line 437
+[30-Jul-2024 10:34:33 UTC] PHP Deprecated:  urldecode(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 326
+[30-Jul-2024 10:34:33 UTC] PHP Warning:  Attempt to read property "parent" on null in C:\Users\Aims\Local Sites\module4\app\public\wp-admin\includes\class-wp-terms-list-table.php on line 438
+[30-Jul-2024 11:24:31 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "register_widgetss" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\widgets.php(1870): do_action('widgets_init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(324): wp_widgets_init('')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#6 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#7 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#8 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#9 C:\Users\Aims\Local Sites\module4\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\Aims\\L...')
+#10 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
