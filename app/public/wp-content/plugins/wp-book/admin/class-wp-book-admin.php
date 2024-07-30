@@ -207,21 +207,25 @@ class Wp_Book_Admin
 
 		// Now register the non-hierarchical taxonomy like tag
 
-		register_taxonomy('tags', 'books', array(
-			'hierarchical' => false,
-			'labels' => $labels,
-			'show_ui' => true,
-			'show_in_rest' => true,
-			'show_admin_column' => true,
-			'update_count_callback' => '_update_post_term_count',
-			'query_var' => true,
-			'rewrite' => array('slug' => 'tag'),
-		)
+		register_taxonomy(
+			'tags',
+			'books',
+			array(
+				'hierarchical' => false,
+				'labels' => $labels,
+				'show_ui' => true,
+				'show_in_rest' => true,
+				'show_admin_column' => true,
+				'update_count_callback' => '_update_post_term_count',
+				'query_var' => true,
+				'rewrite' => array('slug' => 'tag'),
+			)
 		);
 	}
 
 	//function to add heading of metabox (book details)
-	public function add_bookdetails_meta_box() {
+	public function add_bookdetails_meta_box()
+	{
 		add_meta_box(
 			'bookdetails',
 			__('Book Details', 'wp-book'),
@@ -231,99 +235,199 @@ class Wp_Book_Admin
 			'default'
 		);
 	}
-	
+
 	//Call back function to generate different fields of book 
-	function bookdetails_meta_box_callback($post) {
+	function bookdetails_meta_box_callback($post)
+	{
 		echo '<div style="border: 1px solid #ccc; padding: 10px; ">';
 		wp_nonce_field('bookdetails_data', 'bookdetails_nonce');
 		$this->bookdetails_field_generator($post);
 		echo '</div>';
 	}
-	
+
 	//metabox fields
-    private $meta_fields = array(
-        array(
-            'label' => 'Author Name',
-            'id' => 'author_id',
-            'type' => 'text',
-        ),
-        array(
-            'label' => 'Price',
-            'id' => 'price',
-            'type' => 'number',
-        ),
-        array(
-            'label' => 'Publisher',
-            'id' => 'pub_id',
-            'type' => 'text',
-        ),
-        array(
-            'label' => 'Year',
-            'id' => 'year',
-            'type' => 'number',
-        ),
-        array(
-            'label' => 'Edition',
-            'id' => 'edit_id',
-            'type' => 'number',
-        ),
-        array(
-            'label' => 'URL',
-            'id' => 'url',
-            'type' => 'url',
-        ),
-    );
+	private $meta_fields = array(
+		array(
+			'label' => 'Author Name',
+			'id' => 'author_id',
+			'type' => 'text',
+		),
+		array(
+			'label' => 'Price',
+			'id' => 'price',
+			'type' => 'number',
+		),
+		array(
+			'label' => 'Publisher',
+			'id' => 'pub_id',
+			'type' => 'text',
+		),
+		array(
+			'label' => 'Year',
+			'id' => 'year',
+			'type' => 'number',
+		),
+		array(
+			'label' => 'Edition',
+			'id' => 'edit_id',
+			'type' => 'number',
+		),
+		array(
+			'label' => 'URL',
+			'id' => 'url',
+			'type' => 'url',
+		),
+	);
 
 	//Call back used above to create field details
-    function bookdetails_field_generator($post) {
-        $output = '';
-        foreach ($this->meta_fields as $meta_field) {
-            $label = '<label for="' . $meta_field['id'] . '">' . $meta_field['label'] . '</label>';
-            $meta_value = get_post_meta($post->ID, $meta_field['id'], true);
-            if (empty($meta_value) && isset($meta_field['default'])) {
-                $meta_value = $meta_field['default'];
-            }
-            $input = sprintf(
-                '<input %s id="%s" name="%s" type="%s" value="%s">',
-                $meta_field['type'] !== 'color' ? 'style="width: 50%"' : '',
-                $meta_field['id'],
-                $meta_field['id'],
-                $meta_field['type'],
-                esc_attr($meta_value)
-            );
-            $output .= $this->format_rows($label, $input);
-        }
-        echo '<table class="form-table"><tbody>' . $output . '</tbody></table>';
-    }
+	function bookdetails_field_generator($post)
+	{
+		$output = '';
+		foreach ($this->meta_fields as $meta_field) {
+			$label = '<label for="' . $meta_field['id'] . '">' . $meta_field['label'] . '</label>';
+			$meta_value = get_post_meta($post->ID, $meta_field['id'], true);
+			if (empty($meta_value) && isset($meta_field['default'])) {
+				$meta_value = $meta_field['default'];
+			}
+			$input = sprintf(
+				'<input %s id="%s" name="%s" type="%s" value="%s">',
+				$meta_field['type'] !== 'color' ? 'style="width: 50%"' : '',
+				$meta_field['id'],
+				$meta_field['id'],
+				$meta_field['type'],
+				esc_attr($meta_value)
+			);
+			$output .= $this->format_rows($label, $input);
+		}
+		echo '<table class="form-table"><tbody>' . $output . '</tbody></table>';
+	}
 
 	//function to describe format of all field rows
-    function format_rows($label, $input) {
-        return '<tr><th>' . $label . '</th><td>' . $input . '</td></tr>';
-    }
+	function format_rows($label, $input)
+	{
+		return '<tr><th>' . $label . '</th><td>' . $input . '</td></tr>';
+	}
 
 	//function to save details of book
-    function save_bookdetails_fields($post_id) {
-        if (!isset($_POST['bookdetails_nonce']) || !wp_verify_nonce($_POST['bookdetails_nonce'], 'bookdetails_data')) {
-            return $post_id;
-        }
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return $post_id;
-        }
-        foreach ($this->meta_fields as $meta_field) {
-            if (isset($_POST[$meta_field['id']])) {
-                switch ($meta_field['type']) {
-                    case 'email':
-                        $_POST[$meta_field['id']] = sanitize_email($_POST[$meta_field['id']]);
-                        break;
-                    case 'text':
-                        $_POST[$meta_field['id']] = sanitize_text_field($_POST[$meta_field['id']]);
-                        break;
-                }
-                update_post_meta($post_id, $meta_field['id'], $_POST[$meta_field['id']]);
-            } else if ($meta_field['type'] === 'checkbox') {
-                update_post_meta($post_id, $meta_field['id'], '0');
-            }
-        }
-    }
+	function save_bookdetails_fields($post_id)
+	{
+		if (!isset($_POST['bookdetails_nonce']) || !wp_verify_nonce($_POST['bookdetails_nonce'], 'bookdetails_data')) {
+			return $post_id;
+		}
+		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+			return $post_id;
+		}
+		foreach ($this->meta_fields as $meta_field) {
+			if (isset($_POST[$meta_field['id']])) {
+				switch ($meta_field['type']) {
+					case 'email':
+						$_POST[$meta_field['id']] = sanitize_email($_POST[$meta_field['id']]);
+						break;
+					case 'text':
+						$_POST[$meta_field['id']] = sanitize_text_field($_POST[$meta_field['id']]);
+						break;
+				}
+				update_post_meta($post_id, $meta_field['id'], $_POST[$meta_field['id']]);
+			} else if ($meta_field['type'] === 'checkbox') {
+				update_post_meta($post_id, $meta_field['id'], '0');
+			}
+		}
+	}
+
+
+	/**
+	 * Add a settings page to the "Books" menu.
+	 */
+	public function add_settings_page()
+	{
+		add_submenu_page(
+			'edit.php?post_type=books', // Parent slug (Books menu)
+			__('Book Settings', 'wp-book'), // Page title
+			__('Settings', 'wp-book'), // Menu title
+			'manage_options', // Capability
+			'wp-book-settings', // Menu slug
+			array($this, 'render_settings_page') // Callback function
+		);
+	}
+
+
+	/**
+	 * Register settings and their fields.
+	 */
+	public function register_settings()
+	{
+		register_setting('wp_book_settings_group', 'wp_book_settings');
+
+		add_settings_section(
+			'wp_book_settings_section', // ID
+			__('Book Settings', 'wp-book'), // Title
+			null, // Callback
+			'wp-book-settings' // Page
+		);
+
+		add_settings_field(
+			'wp_book_currency', // ID
+			__('Currency', 'wp-book'), // Title
+			array($this, 'currency_field_callback'), // Callback
+			'wp-book-settings', // Page
+			'wp_book_settings_section' // Section
+		);
+
+		add_settings_field(
+			'wp_book_books_per_page', // ID
+			__('Books Per Page', 'wp-book'), // Title
+			array($this, 'books_per_page_field_callback'), // Callback
+			'wp-book-settings', // Page
+			'wp_book_settings_section' // Section
+		);
+	}
+
+
+
+	/**
+	 * Render the settings page.
+	 */
+	public function render_settings_page()
+	{
+		?>
+		<div class="wrap">
+			<h1><?php _e('Book Settings', 'wp-book'); ?></h1>
+			<form method="post" action="options.php">
+				<?php
+				settings_fields('wp_book_settings_group');
+				do_settings_sections('wp-book-settings');
+				submit_button();
+				?>
+			</form>
+		</div>
+		<?php
+	}
+
+
+	/**
+	 * Render the currency field.
+	 */
+	public function currency_field_callback()
+	{
+		$options = get_option('wp_book_settings');
+		$currency = isset($options['wp_book_currency']) ? esc_attr($options['wp_book_currency']) : 'USD'; // Default to USD
+		?>
+		<input type="text" name="wp_book_settings[wp_book_currency]" value="<?php echo $currency; ?>">
+		<?php
+	}
+
+
+
+	/**
+	 * Render the books per page field.
+	 */
+	public function books_per_page_field_callback()
+	{
+		$options = get_option('wp_book_settings');
+		?>
+		<input type="number" name="wp_book_settings[wp_book_books_per_page]"
+			value="<?php echo isset($options['wp_book_books_per_page']) ? esc_attr($options['wp_book_books_per_page']) : '10'; ?>">
+		<?php
+	}
 
 }

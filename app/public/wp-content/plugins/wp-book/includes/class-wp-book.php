@@ -167,6 +167,8 @@ class Wp_Book {
 		$this->loader->add_action( 'init', $plugin_admin, 'create_book_tags', 0 );
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_bookdetails_meta_box' );
 		$this->loader->add_action( 'save_post', $plugin_admin, 'save_bookdetails_fields' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_settings_page' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
 		
 	}
 
