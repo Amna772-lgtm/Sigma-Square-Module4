@@ -116,6 +116,12 @@ class Wp_Book {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-book-admin.php';
 
+
+		/**
+		 * The class responsible for defining metaboxes related to book details
+		*/
+		//require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-book-metabox.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
@@ -157,8 +163,11 @@ class Wp_Book {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_admin, 'create_book_post_type' );
-		$this->loader->add_action( 'init', $plugin_admin, 'custom_post_type', 0 );
-
+		$this->loader->add_action( 'init', $plugin_admin, 'create_book_category', 0 );
+		$this->loader->add_action( 'init', $plugin_admin, 'create_book_tags', 0 );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_bookdetails_meta_box' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_bookdetails_fields' );
+		
 	}
 
 	/**
