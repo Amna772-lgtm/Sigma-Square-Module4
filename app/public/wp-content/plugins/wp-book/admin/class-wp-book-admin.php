@@ -108,9 +108,9 @@ class Wp_Book_Admin
 
 
 	public function register_widgets()
-    {
-        register_widget('WP_Book_Books_Widget');
-    }
+	{
+		register_widget('WP_Book_Books_Widget');
+	}
 
 	// Our custom post type function
 	function create_book_post_type()
@@ -189,11 +189,8 @@ class Wp_Book_Admin
 	}
 
 	//custom tags function
-	function create_book_tags()
-	{
-
+	function create_book_tags() {
 		// Labels part for the GUI
-
 		$labels = array(
 			'name' => _x('Tags', 'taxonomy general name'),
 			'singular_name' => _x('Tag', 'taxonomy singular name'),
@@ -206,14 +203,14 @@ class Wp_Book_Admin
 			'update_item' => __('Update Tag'),
 			'add_new_item' => __('Add New Tag'),
 			'new_item_name' => __('New Tag Name'),
-			'separate_items_with_commas' => __('Separate Tags with commas'),
-			'add_or_remove_items' => __('Add or remove Tags'),
+			'separate_items_with_commas' => __('Separate tags with commas'),
+			'add_or_remove_items' => __('Add or remove tags'),
 			'choose_from_most_used' => __('Choose from the most used tags'),
+			'not_found' => __('No tags found.'),
 			'menu_name' => __('Tags'),
 		);
-
+	
 		// Now register the non-hierarchical taxonomy like tag
-
 		register_taxonomy(
 			'tags',
 			'books',
@@ -229,6 +226,7 @@ class Wp_Book_Admin
 			)
 		);
 	}
+	
 
 	//function to add heading of metabox (book details)
 	public function add_bookdetails_meta_box()
@@ -254,6 +252,11 @@ class Wp_Book_Admin
 
 	//metabox fields
 	private $meta_fields = array(
+		array(
+			'label' => 'Name of Book',
+			'id' => 'book_name',
+			'type' => 'text',
+		),
 		array(
 			'label' => 'Author Name',
 			'id' => 'author_id',
@@ -309,6 +312,8 @@ class Wp_Book_Admin
 		echo '<table class="form-table"><tbody>' . $output . '</tbody></table>';
 	}
 
+
+
 	//function to describe format of all field rows
 	function format_rows($label, $input)
 	{
@@ -340,6 +345,7 @@ class Wp_Book_Admin
 			}
 		}
 	}
+
 
 
 	/**
@@ -437,77 +443,207 @@ class Wp_Book_Admin
 		<?php
 	}
 
+
+	/**
+	 * Register the shortcode.
+	 */
+	public function register_shortcodes()
+	{
+		add_shortcode('book', array($this, 'book_shortcode'));
+	}
+
+
+
+	/**
+	 * Shortcode callback to display book information.
+	 */
+	public function book_shortcode($atts) {
+		$atts = shortcode_atts(
+			array(
+				'book_name' => '',
+				'author_name' => '',
+				'year' => '',
+				'category' => '',
+				'tag' => '',
+				'publisher' => '',
+			),
+			$atts,
+			'book'
+		);
+	
+		$args = array(
+			'post_type' => 'books',
+			'posts_per_page' => -1,
+			'meta_query' => array(
+				'relation' => 'AND',
+			),
+			'tax_query' => array(
+				'relation' => 'AND',
+			),
+		);
+	
+		if (!empty($atts['book_name'])) {
+			$args['meta_query'][] = array(
+				'key' => 'book_name',
+				'value' => $atts['book_name'],
+				'compare' => 'LIKE',
+			);
+		}
+	
+		if (!empty($atts['author_name'])) {
+			$args['meta_query'][] = array(
+				'key' => 'author_id',
+				'value' => $atts['author_name'],
+				'compare' => 'LIKE',
+			);
+		}
+	
+		if (!empty($atts['year'])) {
+			$args['meta_query'][] = array(
+				'key' => 'year',
+				'value' => $atts['year'],
+				'compare' => 'LIKE',
+			);
+		}
+	
+		if (!empty($atts['category'])) {
+			$args['tax_query'][] = array(
+				'taxonomy' => 'category',
+				'field' => 'slug',
+				'terms' => $atts['category'],
+			);
+		}
+	
+		if (!empty($atts['tag'])) {
+			$args['tax_query'][] = array(
+				'taxonomy' => 'tags',
+				'field' => 'slug',
+				'terms' => $atts['tag'],
+			);
+		}
+	
+		if (!empty($atts['publisher'])) {
+			$args['meta_query'][] = array(
+				'key' => 'pub_id',
+				'value' => $atts['publisher'],
+				'compare' => 'LIKE',
+			);
+		}
+	
+		$query = new WP_Query($args);
+	
+		$output = '<div class="wp-book-shortcode">';
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+				$tags = get_the_terms(get_the_ID(), 'tags');
+				$tag_list = '';
+				if ($tags && !is_wp_error($tags)) {
+					$tag_links = array();
+					foreach ($tags as $tag) {
+						$tag_links[] = '<a href="' . get_term_link($tag->term_id) . '">' . $tag->name . '</a>';
+					}
+					$tag_list = join(', ', $tag_links);
+				}
+	
+				$output .= '<div class="book">';
+				$output .= '<h2><strong>' . get_the_title() . '</strong></h2>';
+				$output .= '<p><strong>' . __('Author:', 'wp-book') . '</strong> ' . get_post_meta(get_the_ID(), 'author_id', true) . '</p>';
+				$output .= '<p><strong>' . __('Year:', 'wp-book') . '</strong> ' . get_post_meta(get_the_ID(), 'year', true) . '</p>';
+				$output .= '<p><strong>' . __('Publisher:', 'wp-book') . '</strong> ' . get_post_meta(get_the_ID(), 'pub_id', true) . '</p>';
+				$output .= '<p><strong>' . __('Category:', 'wp-book') . '</strong> ' . get_the_category_list(', ') . '</p>';
+				$output .= '<p><strong>' . __('Tags:', 'wp-book') . '</strong> ' . $tag_list . '</p>';
+				$output .= '</div>';
+			}
+		} else {
+			$output .= '<p>' . __('No books found', 'wp-book') . '</p>';
+		}
+		$output .= '</div>';
+	
+		wp_reset_postdata();
+	
+		return $output;
+	}
+	
+
+
 }
 class WP_Book_Books_Widget extends WP_Widget
 {
-    public function __construct()
-    {
-        parent::__construct(
-            'wp_book_books_widget', // Base ID
-            __('Books by Category', 'wp-book'), // Name
-            array('description' => __('Displays books from a selected category', 'wp-book')) // Args
-        );
-    }
+	public function __construct()
+	{
+		parent::__construct(
+			'wp_book_books_widget', // Base ID
+			__('Books by Category', 'wp-book'), // Name
+			array('description' => __('Displays books from a selected category', 'wp-book')) // Args
+		);
+	}
 
-    public function widget($args, $instance)
-    {
-        $static_title = __('Books by Category', 'wp-book');
+	public function widget($args, $instance)
+	{
+		$static_title = __('Books by Category', 'wp-book');
 
-        echo $args['before_widget'];
-        echo $args['before_title'] . $static_title . $args['after_title'];
+		echo $args['before_widget'];
+		echo $args['before_title'] . $static_title . $args['after_title'];
 
-        $categories = get_terms(array(
-            'taxonomy' => 'category',
-            'hide_empty' => false,
-        ));
+		$categories = get_terms(
+			array(
+				'taxonomy' => 'category',
+				'hide_empty' => false,
+			)
+		);
 
-        foreach ($categories as $cat) {
-            $query_args = array(
-                'post_type' => 'books',
-                'posts_per_page' => -1,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'category',
-                        'field' => 'term_id',
-                        'terms' => $cat->term_id,
-                    ),
-                ),
-            );
+		foreach ($categories as $cat) {
+			$query_args = array(
+				'post_type' => 'books',
+				'posts_per_page' => -1,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'category',
+						'field' => 'term_id',
+						'terms' => $cat->term_id,
+					),
+				),
+			);
 
-            $query = new WP_Query($query_args);
+			$query = new WP_Query($query_args);
 
-            if ($query->have_posts()) {
-                echo '<h3>' . esc_html($cat->name) . '</h3>';
-                echo '<ul style="padding-left: 20px;">'; // Indentation for books
-                while ($query->have_posts()) {
-                    $query->the_post();
-                    echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
-                }
-                echo '</ul>';
-            }
-            wp_reset_postdata();
-        }
+			if ($query->have_posts()) {
+				echo '<h3>' . esc_html($cat->name) . '</h3>';
+				echo '<ul style="padding-left: 20px;">'; // Indentation for books
+				while ($query->have_posts()) {
+					$query->the_post();
+					echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+				}
+				echo '</ul>';
+			}
+			wp_reset_postdata();
+		}
 
-        echo $args['after_widget'];
-    }
+		echo $args['after_widget'];
+	}
 
-    public function form($instance)
-    {
-        // Optionally, you can still allow a custom title to be set, but it won't be used in the widget output
-        $title = !empty($instance['title']) ? $instance['title'] : '';
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title (not used):', 'wp-book'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" disabled>
-        </p>
-        <?php
-    }
+	public function form($instance)
+	{
+		// Optionally, you can still allow a custom title to be set, but it won't be used in the widget output
+		$title = !empty($instance['title']) ? $instance['title'] : '';
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title (not used):', 'wp-book'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
+				name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>"
+				disabled>
+		</p>
+		<?php
+	}
 
-    public function update($new_instance, $old_instance)
-    {
-        $instance = array();
-        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+	public function update($new_instance, $old_instance)
+	{
+		$instance = array();
+		$instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
 
-        return $instance;
-    }
+		return $instance;
+	}
 }
+
+

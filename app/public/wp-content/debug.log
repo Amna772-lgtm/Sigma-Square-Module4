@@ -276,3 +276,334 @@ Stack trace:
 #9 C:\Users\Aims\Local Sites\module4\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\Aims\\L...')
 #10 {main}
   thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 15:34:02 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wpdb.php on line 1982
+[01-Aug-2024 15:34:02 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wpdb.php on line 1982
+[01-Aug-2024 15:34:02 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wpdb.php on line 1982
+[01-Aug-2024 17:32:21 UTC] Automatic updates starting...
+[01-Aug-2024 17:32:23 UTC] Automatic updates complete.
+[01-Aug-2024 18:10:12 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:15:04 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:15:11 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:16:11 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:16:23 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:20:12 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "register_wp_book_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:20:13 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "register_wp_book_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:20:23 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "register_wp_book_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:20:24 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "register_wp_book_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:24:14 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:24:14 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:24:20 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:24:20 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:25:13 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:25:20 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:25:36 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:32:47 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:32:59 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:33:26 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:33:31 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[01-Aug-2024 18:37:26 UTC] PHP Fatal error:  Cannot declare class Wp_Book, because the name is already in use in C:\Users\Aims\Local Sites\module4\app\public\wp-content\plugins\wp-book\admin\class-wp-book-admin.php on line 528
+[01-Aug-2024 18:37:26 UTC] PHP Fatal error:  Cannot declare class Wp_Book, because the name is already in use in C:\Users\Aims\Local Sites\module4\app\public\wp-content\plugins\wp-book\admin\class-wp-book-admin.php on line 528
+[01-Aug-2024 18:38:39 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:38:39 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:40:25 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:40:25 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:02 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:04 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:09 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:10 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:49 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:50 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:52 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:45:53 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:47:34 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:47:35 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:47:37 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:47:37 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:51:54 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:51:54 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:51:57 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[01-Aug-2024 18:51:57 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class Wp_Book_Admin does not have a method "wp_book_register_shortcodes" in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\Aims\Local Sites\module4\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\Aims\Local Sites\module4\app\public\wp-settings.php(700): do_action('init')
+#3 C:\Users\Aims\Local Sites\module4\app\public\wp-config.php(104): require_once('C:\\Users\\Aims\\L...')
+#4 C:\Users\Aims\Local Sites\module4\app\public\wp-load.php(50): require_once('C:\\Users\\Aims\\L...')
+#5 C:\Users\Aims\Local Sites\module4\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Aims\\L...')
+#6 C:\Users\Aims\Local Sites\module4\app\public\index.php(17): require('C:\\Users\\Aims\\L...')
+#7 {main}
+  thrown in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\class-wp-hook.php on line 324
+[02-Aug-2024 05:09:32 UTC] Automatic updates starting...
+[02-Aug-2024 05:09:36 UTC] Automatic updates complete.
+[02-Aug-2024 05:13:18 UTC] PHP Notice:  Function do_shortcode_tag was called <strong>incorrectly</strong>. Attempting to parse a shortcode without a valid callback: book Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 4.3.0.) in C:\Users\Aims\Local Sites\module4\app\public\wp-includes\functions.php on line 6085
+[02-Aug-2024 05:26:57 UTC] PHP Warning:  Undefined variable $args in C:\Users\Aims\Local Sites\module4\app\public\wp-content\plugins\wp-book\admin\class-wp-book-admin.php on line 233
