@@ -114,27 +114,26 @@ class Wp_Book_Admin
 
 	// Our custom post type function
 	function create_book_post_type()
-	{
+{
+    register_post_type(
+        'books',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __('Books'),
+                'singular_name' => __('Book'),
+                'add_new' => __('Add New'),
+                'add_new_item' => __('Add New Book')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'books'),
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-book', 
+        )
+    );
+}
 
-		register_post_type(
-			'books',
-			// CPT Options
-			array(
-				'labels' => array(
-					'name' => __('Books'),
-					'singular_name' => __('Book'),
-					'add_new' => __('Add New'),
-					'add_new_item' => __('Add New Book')
-				),
-				'public' => true,
-				'has_archive' => true,
-				'rewrite' => array('slug' => 'books'),
-				'show_in_rest' => true,
-				'menu_icon' => 'dashicons-book',
-
-			)
-		);
-	}
 
 
 	//creating custom post category
@@ -564,7 +563,38 @@ class Wp_Book_Admin
 	
 		return $output;
 	}
+
+
+	//dashboard widgets to show 5 book categories based on count
+	public function wp_book_add_dashboard_widgets()
+	{
+		wp_add_dashboard_widget(
+			'wp_book_dashboard_widget',
+			'Top 5 Book Categories',
+			array($this, 'wp_book_dashboard_widget_display')
+		);
+	}
 	
+
+	public function wp_book_dashboard_widget_display()
+	{
+		$categories = get_terms(array(
+			'taxonomy' => 'category',
+			'orderby' => 'count',
+			'order' => 'DESC',
+			'number' => 5,
+		));
+
+		if (!empty($categories)) {
+			echo '<ul>';
+			foreach ($categories as $category) {
+				echo '<li>' . esc_html($category->name) . ' (' . esc_html($category->count) . ')</li>';
+			}
+			echo '</ul>';
+		} else {
+			echo '<p>No categories found.</p>';
+		}
+	}
 
 
 }
