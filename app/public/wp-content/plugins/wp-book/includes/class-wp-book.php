@@ -1,5 +1,14 @@
 <?php
 
+/*
+Plugin Name: WP Book
+Description: A plugin to manage books.
+Version: 1.0.0
+Author: Amna
+Text Domain: wp-book
+Domain Path: /languages
+*/
+
 /**
  * The core plugin class.
  *
@@ -89,6 +98,17 @@ class Wp_Book
 	{
 
 		/**
+		 * The class responsible for activation of custom plugin
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-wp-book-activator.php';
+
+
+		/**
+		 * The class responsible for deactivation of custom plugin
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-wp-book-deactivator.php';
+
+		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
@@ -133,6 +153,10 @@ class Wp_Book
 
 	}
 
+	public function load_textdomain() {
+        load_plugin_textdomain('wp-book', false, dirname(plugin_basename(__FILE__)) . '/languages');
+    }
+
 	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
@@ -159,6 +183,7 @@ class Wp_Book
 		$this->loader->add_action('wp_dashboard_setup', $plugin_admin, 'wp_book_add_dashboard_widgets');
 
 	}
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
@@ -222,3 +247,8 @@ class Wp_Book
 	}
 
 }
+// Register activation hook
+register_activation_hook(__FILE__, array('Wp_Book_Activator', 'activate'));
+
+// Register deactivation hook
+register_deactivation_hook(__FILE__, array('Wp_Book_Deactivator', 'deactivate_plugin'));

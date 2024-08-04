@@ -32,27 +32,31 @@ class Wp_Book_Activator
 	 */
 	public static function activate()
 	{
-
-		function wp_book_create_meta_table()
-		{
-			global $wpdb;
-			$table_name = $wpdb->prefix . 'book_meta';
-			$charset_collate = $wpdb->get_charset_collate();
-
-			$sql = "CREATE TABLE $table_name (
-        meta_id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-        book_id bigint(20) unsigned NOT NULL DEFAULT '0',
-        meta_key varchar(255) DEFAULT NULL,
-        meta_value longtext DEFAULT NULL,
-        PRIMARY KEY (meta_id),
-        KEY book_id (book_id),
-        KEY meta_key (meta_key(191))
-    ) $charset_collate;";
-
-			require_once (ABSPATH . 'wp-admin/includes/upgrade.php');
-			dbDelta($sql);
-		}
+		self::create_custom_meta_table(); 
 	}
 
-
+	/**
+	 * Create custom meta table for book details.
+	 *
+	 * @since    1.0.0
+	 */
+	private static function create_custom_meta_table() {
+		global $wpdb;
+	
+		$table_name = $wpdb->prefix . 'custom_meta_table';
+		$charset_collate = $wpdb->get_charset_collate();
+	
+		$sql = "CREATE TABLE $table_name (
+			meta_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			post_id BIGINT(20) UNSIGNED NOT NULL,
+			meta_key VARCHAR(255) NOT NULL,
+			meta_value LONGTEXT NOT NULL,
+			PRIMARY KEY (meta_id),
+			KEY post_id (post_id),
+			KEY meta_key (meta_key)
+		) $charset_collate;";
+	
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		dbDelta($sql);
+	}
 }

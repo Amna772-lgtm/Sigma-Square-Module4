@@ -1,0 +1,90 @@
+function bookdetails_meta_box_callback($post)
+	{
+		global $wpdb;
+
+		// Fetch meta data from the custom table
+		$custom_meta = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT meta_key, meta_value FROM {$wpdb->prefix}custom_meta_table WHERE post_id = %d",
+				$post->ID
+			),
+			OBJECT_K
+		);
+
+		echo '<div style="border: 1px solid #ccc; padding: 10px; ">';
+		wp_nonce_field('bookdetails_data', 'bookdetails_nonce');
+
+		foreach ($this->meta_fields as $meta_field) {
+			$meta_value = isset($custom_meta[$meta_field['id']]) ? $custom_meta[$meta_field['id']]->meta_value : '';
+			echo $this->format_rows(
+				'<label for="' . $meta_field['id'] . '">' . $meta_field['label'] . '</label>',
+				$input = sprintf(
+					'<input %s id="%s" name="%s" type="%s" value="%s">',
+					$meta_field['type'] !== 'color' ? 'style="width: 50%"' : '',
+					$meta_field['id'],
+					$meta_field['id'],
+					$meta_field['type'],
+					esc_attr($meta_value)
+				)
+
+			);
+		}
+		echo '</div>';
+	}
+
+    public function save_bookdetails_fields($post_id)
+	{
+		global $wpdb;
+
+		// Verify nonce
+		if (!isset($_POST['bookdetails_nonce']) || !wp_verify_nonce($_POST['bookdetails_nonce'], 'bookdetails_data')) {
+			return $post_id;
+		}
+
+		// Check autosave
+		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+			return $post_id;
+		}
+
+		// Sanitize and update meta fields
+		foreach ($this->meta_fields as $meta_field) {
+			if (isset($_POST[$meta_field['id']])) {
+				$value = '';
+				switch ($meta_field['type']) {
+					case 'email':
+						$value = sanitize_email($_POST[$meta_field['id']]);
+						break;
+					case 'url':
+						$value = esc_url_raw($_POST[$meta_field['id']]);
+						break;
+					case 'number':
+						$value = absint($_POST[$meta_field['id']]);
+						break;
+					case 'text':
+					default:
+						$value = sanitize_text_field($_POST[$meta_field['id']]);
+						break;
+				}
+
+				$wpdb->replace(
+					$wpdb->prefix . 'custom_meta_table',
+					array(
+						'post_id' => $post_id,
+						'meta_key' => $meta_field['id'],
+						'meta_value' => $value
+					),
+					array('%d', '%s', '%s')
+				);
+			} else if ($meta_field['type'] === 'checkbox') {
+				$wpdb->replace(
+					$wpdb->prefix . 'custom_meta_table',
+					array(
+						'post_id' => $post_id,
+						'meta_key' => $meta_field['id'],
+						'meta_value' => '0'
+					),
+					array('%d', '%s', '%s')
+				);
+			}
+		}
+	}
